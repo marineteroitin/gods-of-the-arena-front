@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+
+.font25px {
+  font-size: 25px;
+}
+
+.fontBold {
+  font-weight: bold;
+}
+
+.logo {
+  width: 10%;
+  margin-right: 2em;
+}
+
+.card {
+  margin: 2em;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 30%);
+}
+
+.cardTitle {
+  border-radius: 8px 8px 0 0;
+  background-color: #28B886;
+  color: #ffff;
+  font-size: 22px;
+  padding: 0.3em;
+}
+
+.greenButton {
+  text-decoration: none;
+  font-weight: 600;
+  word-break: break-all;
+  text-transform: uppercase;
+  display: inline-block;
+  background-color: #28B886;
+  color: white;
+  padding: 1rem 1.8rem;
+  border-radius: 0.8rem 0.8rem 0.8rem 0;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+  font-size: larger;
+}
+
+.iconGladiator {
+  width: 50px;
+  margin-bottom: 1em;
+}
+
+.notification {
+  color: var(--color);
+}

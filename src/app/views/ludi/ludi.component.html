@@ -1,0 +1,50 @@
+<div fxLayoutAlign="center center" style="margin-top: 2em">
+  <img class="logo" src="../../../assets/img/school.png"/>
+  <div class="font25px"> Ludi</div>
+
+</div>
+
+<div class="card">
+  <div class="cardTitle" fxLayoutAlign="center center">Proposition de combat</div>
+
+  <div style="margin-top: 1em; margin-left: 1em" class="fontBold">Veuillez choisir 2 types de gladiateurs:</div>
+
+  <div style="margin-top: 1em; margin-left: 1em">
+    <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+
+      <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+
+        <div *ngFor="let type of gladiatorTypes; let i=index">
+
+          <label fxLayout="column" fxLayoutAlign="center center">
+            <div class="card" fxLayout="column" fxLayoutAlign="center center" style="padding: 1em">
+              <img class="iconGladiator" [src]="getIcon(type.name_gladiatorType)"/>
+              {{type.name_gladiatorType}}
+            </div>
+            <input type="checkbox"
+                   [value]="type.id_gladiatorType"
+                   (change)="onCheckboxChange({e : $event})"/>
+          </label>
+
+        </div>
+      </div>
+
+      <div style="margin-top: 3em; margin-left: 1em" class="fontBold" >
+        <label>
+          <input type="checkbox"
+                 (change)="oncheckedAnimal({e : $event})"
+          />
+          Bonus Animal
+        </label>
+      </div>
+
+      <div class="notification" fxLayout="column" fxLayoutAlign="center center" style="margin-top: 2em"
+           [style.--color]="notificationColor">
+        <p *ngIf="notification != ''"> {{notification}} </p>
+        <input class="greenButton" type="submit" value="Enregistrer">
+      </div>
+
+    </form>
+  </div>
+
+</div>
