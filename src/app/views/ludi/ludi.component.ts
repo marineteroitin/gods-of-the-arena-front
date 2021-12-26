@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
-import { getIconGladiatorType } from '../../utils/utils';
 import {GladiatorTypeModel} from "../../models/gladiatorType.model";
 import {GladiatorTypeService} from "../../services/gladiatorType/gladiator-type.service";
 import {PropositionService} from "../../services/proposition/proposition.service";
@@ -80,8 +79,6 @@ export class LudiComponent implements OnInit {
     }
   }
 
-  getIcon(name: string){
-    return getIconGladiatorType(name);
-  }
+
 
 }

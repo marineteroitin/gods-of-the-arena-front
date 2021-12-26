@@ -9,7 +9,7 @@
 }
 
 .logo {
-  width: 10%;
+  width: 8%;
   margin-right: 2em;
 }
 
@@ -27,13 +27,12 @@
   padding: 0.3em;
 }
 
-.greenButton {
+.-button {
   text-decoration: none;
   font-weight: 600;
   word-break: break-all;
   text-transform: uppercase;
   display: inline-block;
-  background-color: #28B886;
   color: white;
   padding: 1rem 1.8rem;
   border-radius: 0.8rem 0.8rem 0.8rem 0;
@@ -41,6 +40,14 @@
   outline: none;
   margin-bottom: 20px;
   font-size: larger;
+}
+
+.greenBg {
+  background-color: #28B886;
+}
+
+.blackBg {
+  background-color: #2d2a32;
 }
 
 .iconGladiator {

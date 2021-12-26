@@ -1,7 +1,13 @@
-<div fxLayoutAlign="center center" style="margin-top: 2em">
+<div fxLayout="row" fxLayoutAlign="end center" >
+  <a routerLink="/emperor" class="-button blackBg">
+    Empereur
+  </a>
+</div>
+
+
+<div fxLayoutAlign="center center" >
   <img class="logo" src="../../../assets/img/school.png"/>
   <div class="font25px"> Ludi</div>
-
 </div>
 
 <div class="card">
@@ -17,10 +23,11 @@
         <div *ngFor="let type of gladiatorTypes; let i=index">
 
           <label fxLayout="column" fxLayoutAlign="center center">
-            <div class="card" fxLayout="column" fxLayoutAlign="center center" style="padding: 1em">
-              <img class="iconGladiator" [src]="getIcon(type.name_gladiatorType)"/>
-              {{type.name_gladiatorType}}
-            </div>
+            <app-gladiator-type-card
+              [name_gladiatorType]="type.name_gladiatorType"
+            >
+            </app-gladiator-type-card>
+
             <input type="checkbox"
                    [value]="type.id_gladiatorType"
                    (change)="onCheckboxChange({e : $event})"/>
@@ -41,7 +48,7 @@
       <div class="notification" fxLayout="column" fxLayoutAlign="center center" style="margin-top: 2em"
            [style.--color]="notificationColor">
         <p *ngIf="notification != ''"> {{notification}} </p>
-        <input class="greenButton" type="submit" value="Enregistrer">
+        <input class="-button greenBg" type="submit" value="Enregistrer">
       </div>
 
     </form>

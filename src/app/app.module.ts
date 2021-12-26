@@ -7,8 +7,12 @@ import {LudiComponent} from './views/ludi/ludi.component';
 import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {GladiatorTypeService} from "./services/gladiatorType/gladiator-type.service";
 import {PropositionService} from "./services/proposition/proposition.service";
-import { AppRoutingModule } from './app-routing.module';
-import { NoPageFoundComponent } from './views/no-page-found/no-page-found.component';
+import {AppRoutingModule} from './app-routing.module';
+import {NoPageFoundComponent} from './views/no-page-found/no-page-found.component';
+import {EmperorComponent} from './views/emperor/emperor.component';
+import {SpectatorComponent} from './views/spectator/spectator.component';
+import {GladiatorTypeCardComponent} from './components/gladiator-type-card/gladiator-type-card.component';
+import {EmperorFightCreationComponent} from './views/emperor-fight-creation/emperor-fight-creation.component';
 
 
 @NgModule({
@@ -16,7 +20,11 @@ import { NoPageFoundComponent } from './views/no-page-found/no-page-found.compon
   declarations: [
     AppComponent,
     LudiComponent,
-    NoPageFoundComponent
+    NoPageFoundComponent,
+    EmperorComponent,
+    SpectatorComponent,
+    GladiatorTypeCardComponent,
+    EmperorFightCreationComponent
   ],
   //routes and modules
   imports: [

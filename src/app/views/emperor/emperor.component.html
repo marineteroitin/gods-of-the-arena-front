@@ -1,0 +1,48 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <a routerLink="/ludi" class="-button blackBg">
+    Ludi
+  </a>
+
+  <a routerLink="/spectator" class="-button blackBg">
+    Spectateur
+  </a>
+</div>
+
+
+<div fxLayoutAlign="center center">
+  <img class="logo" src="../../../assets/img/emperor.png"/>
+  <div class="font25px"> Empereur</div>
+</div>
+
+
+<!-- cases where there is no proposition -->
+<div *ngIf="!propositions" fxLayoutAlign="center center" style="margin-top: 5em">
+  Il n'y a pas de propostion pour le moment.
+</div>
+
+
+<div *ngIf="propositions" fxLayout="row wrap" fxLayoutAlign="center center">
+  <div *ngFor="let proposition of propositions; let i=index">
+    <div class="card">
+      <div class="cardTitle" fxLayoutAlign="center center">Proposition {{proposition.id_proposition}}</div>
+
+      <div fxLayout="row wrap" fxLayoutAlign="center center">
+
+        <app-gladiator-type-card
+                                 [name_gladiatorType]="proposition.name_gladiatortype1"></app-gladiator-type-card>
+
+        <app-gladiator-type-card
+                                 [name_gladiatorType]="proposition.name_gladiatortype2"></app-gladiator-type-card>
+
+        <app-gladiator-type-card *ngIf="proposition.animal"
+                                 [name_gladiatorType]="'Animal'"></app-gladiator-type-card>
+      </div>
+
+      <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+        <button class="-button greenBg" style="margin: 1em" (click)="onAcceptClicked(proposition)">Accepter</button>
+        <button class="-button blackBg"  style="margin: 1em" (click)="onDeleteClicked(proposition.id_proposition)">Refuser</button>
+      </div>
+
+    </div>
+  </div>
+</div>

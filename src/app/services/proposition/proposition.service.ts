@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import { HttpClient } from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {map,tap, Observable} from "rxjs";
 import {PropositionModel} from "../../models/proposition.model";
 
 @Injectable({
@@ -20,4 +20,22 @@ export class PropositionService {
         })
       )
   }
+
+  /* Get all proposition */
+  public getAllProposition(): Observable<PropositionModel[]> {
+    return this.http.get<any>(this.baseUrl + `proposition/`).pipe(
+      map((res: any) => {
+        if(res){
+          return res.propositions;
+        } else return res;
+      })
+    )
+  }
+
+  /* delete a proposition */
+  public deleteProposition(id_proposition: number): Observable<any> {
+    return this.http.delete<any>(this.baseUrl + `proposition/${id_proposition}`).pipe(tap((_) => console.log(`deleted ${id_proposition}`)))
+  }
+
+
 }
