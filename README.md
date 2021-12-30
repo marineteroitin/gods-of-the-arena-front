@@ -1,6 +1,6 @@
 # Gods Of The Arena Front
 
-This project is the frontend of th technical test for the Pulp.
+This project is the frontend of the technical test for the Pulp.
 
 
 ## Development mode
