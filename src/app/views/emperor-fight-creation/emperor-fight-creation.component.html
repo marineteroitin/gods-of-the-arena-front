@@ -1,1 +1,99 @@
-<p>emperor-fight-creation works!</p>
+<div fxLayout="row" fxLayoutAlign="start center" style="margin: 1em">
+  <a routerLink="/emperor" class="-button blackBg">
+    Propositions
+  </a>
+</div>
+
+
+<div fxLayoutAlign="center center">
+  <img class="logo" src="../../../assets/img/emperor.png"/>
+  <div class="font25px"> Empereur</div>
+</div>
+
+
+<div class="card">
+  <div class="cardTitle" fxLayoutAlign="center center">Création de combat</div>
+  <form [formGroup]="fightCreationForm" (ngSubmit)="submitForm()">
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+
+      <div fxLayout="row flex" fxLayoutAlign="space-around center">
+
+        <app-gladiator-type-card
+          [name_gladiatorType]="proposition.name_gladiatortype1"></app-gladiator-type-card>
+
+        <select formControlName="gladiator1" class="dropdown">
+          <option value=""  *ngIf="gladiatorsType1" disabled>Choisir un gladiateur</option>
+          <option value="" *ngIf="!gladiatorsType1" >Pas de gladiateur disponible..</option>
+
+          <option *ngFor="let gladiator of gladiatorsType1"
+                  [ngValue]="gladiator">{{gladiator.name_gladiator}}</option>
+        </select>
+
+        <div *ngIf="this.fightCreationForm.value.gladiator1.customization" class="space">
+          <select formControlName="id_weapon1" class="dropdown" style="margin-left: 2em">
+            <option value="" *ngIf="weaponType1" disabled>Choisir une arme</option>
+            <option value="" *ngIf="!weaponType1">ERREUR: pas d'armes disponible !</option>
+
+            <option *ngFor="let weapon of weaponType1"
+                    [ngValue]="weapon.id_weapon">{{weapon.name_weapon}}</option>
+          </select>
+        </div>
+
+      </div>
+
+
+      <div fxLayout="row flex" fxLayoutAlign="space-around center" style="margin-bottom: 2em">
+
+        <app-gladiator-type-card
+          [name_gladiatorType]="proposition.name_gladiatortype2"></app-gladiator-type-card>
+        <select formControlName="gladiator2" class="dropdown">
+          <option value=""  *ngIf="gladiatorsType1" disabled>Choisir un gladiateur</option>
+          <option value="" *ngIf="!gladiatorsType1" >Pas de gladiateur disponible..</option>
+
+          <option *ngFor="let gladiator of gladiatorsType2"
+                  [ngValue]="gladiator">{{gladiator.name_gladiator}}</option>
+        </select>
+
+        <div *ngIf="this.fightCreationForm.value.gladiator2.customization" class="space">
+          <select formControlName="id_weapon2" class="dropdown" style="margin-left: 2em">
+            <option value="" *ngIf="weaponType2" disabled>Choisir une arme</option>
+            <option value="" *ngIf="!weaponType2" >ERREUR: pas d'armes disponible !</option>
+
+            <option *ngFor="let weapon of weaponType2"
+                    [ngValue]="weapon.id_weapon">{{weapon.name_weapon}}</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div *ngIf="proposition.animal" fxLayout="row flex" fxLayoutAlign="space-around center"
+           style="margin-bottom: 2em">
+        <app-gladiator-type-card
+          [name_gladiatorType]="'Animal'"></app-gladiator-type-card>
+
+        <select multiple formControlName="idListAnimals" class="dropdown">
+          <option value="" *ngIf="animals" disabled>Choisir entre 0 et 5 animaux</option>
+          <option value="" *ngIf="!animals" >Pas d'animaux diponibles...</option>
+
+          <option *ngFor="let animal of animals"
+                  [ngValue]="animal.id_gladiator"
+          >{{animal.name_gladiator}}
+          </option>
+        </select>
+      </div>
+
+      <!-- error block-->
+      <div style="color:red; margin-bottom: 1em" *ngIf="isSubmitted && fightCreationForm?.errors?.['required']">
+        <sup>*</sup>Choisissez un gladiateur de chaque type !
+      </div>
+
+      <!-- Alert success -->
+      <div class="alert alert-success" role="alert" *ngIf="success">
+        Le combat à bien été enregistré!
+      </div>
+
+      <button class="-button greenBg" type="submit" [disabled]="success || isErrorData()">Enregistrer</button>
+
+    </div>
+  </form>
+</div>

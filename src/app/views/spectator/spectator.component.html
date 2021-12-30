@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="start center" >
+<div fxLayout="row" fxLayoutAlign="start center" style="margin: 1em">
   <a routerLink="/emperor" class="-button blackBg">
     Empereur
   </a>
@@ -7,4 +7,46 @@
 <div fxLayoutAlign="center center">
   <img class="logo" src="../../../assets/img/calendar.png"/>
   <div class="font25px"> Spectateur</div>
+</div>
+
+<!-- cases where there is no fights -->
+<div *ngIf="!fights" fxLayoutAlign="center center" style="margin-top: 5em">
+  Il n'y a pas de combats pour le moment.
+</div>
+
+<div *ngIf="fights" class="card">
+  <div class="cardTitle" fxLayoutAlign="center center">Programmation</div>
+
+  <div fxLayout="column" fxLayoutAlign="space-around center" style="margin: 1.5em">
+
+    <div *ngFor="let fight of fights; let j = index"  >
+      <div fxLayout="row wrap" fxLayoutAlign="center center">
+      <div *ngFor="let participant of fight.participants; let i = index" fxLayout="row" fxLayoutAlign="center center">
+
+        <div *ngIf="i > 0 && i < 3">
+          <img class="iconGladiator" style="margin-left: 1em" src="../../../assets/img/vs.png" />
+        </div>
+
+        <div *ngIf="i < 3">
+          <app-gladiator-type-card
+            [name_gladiatorType]="participant.name_gladiatorType"></app-gladiator-type-card>
+
+        </div>
+
+        <div *ngIf="i > 2" style="margin-right: 0.5em;"> </div>
+
+        <div>
+          {{participant.name_gladiator}}
+          <div class="greenColor">
+            {{participant.name_weapon}}
+          </div>
+        </div>
+
+
+      </div>
+      </div>
+      <div *ngIf="j !== fights.length - 1"> <hr/></div> <!-- fight separator-->
+    </div>
+  </div>
+
 </div>

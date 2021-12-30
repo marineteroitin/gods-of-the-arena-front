@@ -23,18 +23,21 @@ export class PropositionService {
 
   /* Get all proposition */
   public getAllProposition(): Observable<PropositionModel[]> {
-    return this.http.get<any>(this.baseUrl + `proposition/`).pipe(
+    return this.http.get(this.baseUrl + `proposition/`).pipe(
       map((res: any) => {
         if(res){
           return res.propositions;
-        } else return res;
+        } else {
+          return res;
+        }
       })
     )
   }
 
   /* delete a proposition */
   public deleteProposition(id_proposition: number): Observable<any> {
-    return this.http.delete<any>(this.baseUrl + `proposition/${id_proposition}`).pipe(tap((_) => console.log(`deleted ${id_proposition}`)))
+    return this.http.delete(this.baseUrl + `proposition/${id_proposition}`).pipe(
+      tap((_) => console.log(`deleted ${id_proposition}`)))
   }
 
 

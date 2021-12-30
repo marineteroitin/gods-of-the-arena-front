@@ -7,7 +7,7 @@ import {PropositionService} from "../../services/proposition/proposition.service
 @Component({
   selector: 'app-ludi',
   templateUrl: './ludi.component.html',
-  styleUrls: ['./ludi.component.css']
+  styleUrls: ['./ludi.component.scss']
 })
 
 export class LudiComponent implements OnInit {
@@ -40,7 +40,7 @@ export class LudiComponent implements OnInit {
   }
 
 
-  onCheckboxChange({e}: { e: any }) {
+  onCheckboxChange({e}: { e: any }): void {
     const selectedTypes: FormArray = this.form.get('selectedTypes') as FormArray;
 
     if (e.target.checked) {
@@ -59,11 +59,11 @@ export class LudiComponent implements OnInit {
     }
   }
 
-  oncheckedAnimal({e}: { e: any }) {
+  oncheckedAnimal({e}: { e: any }): void {
     this.animal = e.target.checked;
   }
 
-  submitForm() {
+  submitForm(): void {
 
     if(this.form.value.selectedTypes.length !=2){ /* wrong number of partipants */
       this.notificationColor = "red";

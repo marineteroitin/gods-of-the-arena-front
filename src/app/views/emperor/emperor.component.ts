@@ -20,14 +20,14 @@ export class EmperorComponent implements OnInit {
     this.getAllProposition();
   }
 
-  getAllProposition() {
+  getAllProposition(): void {
     this.propositionService.getAllProposition().subscribe((propositionList) => {
       this.propositions = propositionList;
-      console.log(this.propositions)
     })
   }
 
-  onDeleteClicked(id_proposition: number) {
+  /* delete the proposition according to a given id */
+  onDeleteClicked(id_proposition: number): void {
     this.propositionService.deleteProposition(id_proposition).subscribe(() => {
       for (let i = 0; i < this.propositions.length; i++) {
         if (this.propositions[i].id_proposition === id_proposition) {
@@ -38,7 +38,8 @@ export class EmperorComponent implements OnInit {
 
   }
 
-  onAcceptClicked(proposition: PropositionModel){
+  /* redirect to the creation page of a fight */
+  onAcceptClicked(proposition: PropositionModel): void{
     this.router.navigate(['/fight/creation'], {state: {data: proposition}})
   }
 

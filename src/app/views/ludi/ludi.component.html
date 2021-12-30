@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="end center" >
+<div fxLayout="row" fxLayoutAlign="end center" style="margin: 1em">
   <a routerLink="/emperor" class="-button blackBg">
     Empereur
   </a>
@@ -45,11 +45,15 @@
         </label>
       </div>
 
-      <div class="notification" fxLayout="column" fxLayoutAlign="center center" style="margin-top: 2em"
-           [style.--color]="notificationColor">
-        <p *ngIf="notification != ''"> {{notification}} </p>
+      <div  fxLayout="column" fxLayoutAlign="center center" style="margin-top: 2em">
+        <div class="notification"  [style.--color]="notificationColor" *ngIf="notification != ''">
+          <p> {{notification}} </p>
+        </div>
+
         <input class="-button greenBg" type="submit" value="Enregistrer">
       </div>
+
+
 
     </form>
   </div>

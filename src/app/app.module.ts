@@ -13,6 +13,7 @@ import {EmperorComponent} from './views/emperor/emperor.component';
 import {SpectatorComponent} from './views/spectator/spectator.component';
 import {GladiatorTypeCardComponent} from './components/gladiator-type-card/gladiator-type-card.component';
 import {EmperorFightCreationComponent} from './views/emperor-fight-creation/emperor-fight-creation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {EmperorFightCreationComponent} from './views/emperor-fight-creation/empe
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [
     GladiatorTypeService,
