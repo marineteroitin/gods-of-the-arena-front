@@ -147,8 +147,6 @@ export class EmperorFightCreationComponent implements OnInit {
     return this.fightCreationForm.get('idListAnimals');
   }
 
-
-// @ts-ignore
   submitForm(): boolean {
     this.isSubmitted = true;
 

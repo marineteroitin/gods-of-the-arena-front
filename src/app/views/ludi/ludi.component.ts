@@ -48,8 +48,8 @@ export class LudiComponent implements OnInit {
     } else {
       let i: number = 0;
 
-      // @ts-ignore
-      selectedTypes.controls.forEach((item: FormControl) => {
+
+      selectedTypes.controls.forEach((item) => {
         if (item.value == e.target.value) {
           selectedTypes.removeAt(i);
           return;
