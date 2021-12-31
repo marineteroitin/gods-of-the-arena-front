@@ -31,9 +31,10 @@ export class LudiComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllGladiatorType();
+
   }
 
-  getAllGladiatorType(){
+  getAllGladiatorType(): void {
     this.gladiatorTypeService.getAllGladiatorTypes().subscribe((types) => {
       this.gladiatorTypes = types;
     })

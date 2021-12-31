@@ -83,8 +83,8 @@
       </div>
 
       <!-- error block-->
-      <div style="color:red; margin-bottom: 1em" *ngIf="isSubmitted && fightCreationForm?.errors?.['required']">
-        <sup>*</sup>Choisissez un gladiateur de chaque type !
+      <div style="color:red; margin-bottom: 1em" *ngIf="isSubmitted && isErrorData()">
+        <sup>*</sup>Choisissez un gladiateur de chaque type et leur arme si on vous le propose !
       </div>
 
       <!-- Alert success -->
@@ -92,7 +92,7 @@
         Le combat à bien été enregistré!
       </div>
 
-      <button class="-button greenBg" type="submit" [disabled]="success || isErrorData()">Enregistrer</button>
+      <button class="-button greenBg" type="submit" [disabled]="success">Enregistrer</button>
 
     </div>
   </form>

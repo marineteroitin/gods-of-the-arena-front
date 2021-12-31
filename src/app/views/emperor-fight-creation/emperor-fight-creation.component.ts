@@ -120,10 +120,10 @@ export class EmperorFightCreationComponent implements OnInit {
 
   /* To know if there are missing data in the database */
   isErrorData(): boolean {
-    return !this.gladiatorsType1 ||
-        !this.gladiatorsType2 ||
-      ( this.fightCreationForm.value.gladiator1.customization && !this.weaponType1.length ) ||
-      ( this.fightCreationForm.value.gladiator2.customization && !this.weaponType2.length);
+    return this.gladiator1?.value === "" ||
+      this.gladiator2?.value === "" ||
+      ( this.fightCreationForm.value.gladiator1.customization && this.id_weapon1?.value === "" ) ||
+      ( this.fightCreationForm.value.gladiator2.customization && this.id_weapon2?.value === "");
   }
 
 //Getter to access formControls
@@ -147,12 +147,10 @@ export class EmperorFightCreationComponent implements OnInit {
     return this.fightCreationForm.get('idListAnimals');
   }
 
-  submitForm(): boolean {
+  submitForm(): void {
     this.isSubmitted = true;
 
-    if (!this.fightCreationForm.valid) {
-      return false;
-    } else {
+    if (!this.isErrorData()) {
 
       let gladiator1 = {
         "id_gladiator": this.fightCreationForm.value.gladiator1.id_gladiator,
@@ -170,7 +168,6 @@ export class EmperorFightCreationComponent implements OnInit {
         console.log(res);
         this.success = true;
       })
-      return true;
     }
   }
 
